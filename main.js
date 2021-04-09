@@ -149,7 +149,7 @@ function buyGoldPerClick(){
 // Makes sure the text on page is being updated when the page is refreshed, used in the gameLoop
 function refresh(){
     document.getElementById("grip").textContent = "Train Grip || "+beautify(gym.gripCost)+" Strength"
-    document.getElementById("mineGold").textContent = "Mine "+beautify(gameData.goldPerClick)+" Gold"
+    document.getElementById("mineGold").textContent = "Mine "+beautify(gameData.goldPerClick*gym.strength)+" Gold"
     document.getElementById("cartBuy").textContent = beautify(gameData.cartCost)+" Crystal"
     document.getElementById("buyGloves").textContent = "Buy Gloves || "+ beautify(gameData.glovesCost)+" Gold"
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
