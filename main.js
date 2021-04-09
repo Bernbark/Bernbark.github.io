@@ -59,6 +59,7 @@ document.addEventListener("visibilitychange", function() {
 function mineGold(){
     gameData.gold += gameData.goldPerClick*gym.strength
     gameData.totalGold += gameData.goldPerClick*gym.strength
+    console.log(gameData.goldPerClick*gym.strength)
     chance = Math.floor(Math.random() * gameData.crystalFind)+1
     if (chance === gameData.crystalFind){
         gameData.crystal+=gameData.glovesMulti*(1+gym.gripCount/4)
