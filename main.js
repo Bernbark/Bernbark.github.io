@@ -54,9 +54,10 @@ document.addEventListener("visibilitychange", function() {
     }
 })
 //TODO Create a system where you can use gold mined/interval to perform other actions like paying for a gym membership, getting stronger, 
-var clickStrength = gameData.goldPerClick*gym.strength
+var clickStrength = 1
 //Click to mine gold, textContent brings the action to the button ID goldMined
 function mineGold(){
+    clickStrength = gym.strength*gameData.goldPerClick
     gameData.gold += clickStrength
     gameData.totalGold += clickStrength
     console.log(gameData.goldPerClick)
