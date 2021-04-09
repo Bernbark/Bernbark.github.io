@@ -59,7 +59,8 @@ var clickStrength = gameData.goldPerClick*gym.strength
 function mineGold(){
     gameData.gold += clickStrength
     gameData.totalGold += clickStrength
-    console.log(gameD)
+    console.log(gameData.goldPerClick)
+    console.log(gym.strength)
     console.log(clickStrength)
     chance = Math.floor(Math.random() * gameData.crystalFind)+1
     if (chance === gameData.crystalFind){
