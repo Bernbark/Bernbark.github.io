@@ -92,7 +92,7 @@ function buyGloves(){
     if (gameData.gold >= gameData.glovesCost){
         gameData.gold-=gameData.glovesCost
         gameData.glovesMulti++
-        gameData.glovesCost*=gameData.glovesMulti/gameData.glovesMulti-1
+        gameData.glovesCost*=gameData.glovesMulti+1/gameData.glovesMulti
     }
 }
 
