@@ -1,4 +1,6 @@
 var hirelings = {
+    charisma: 0,
+    cred: 0,
     minersAvailable: 0,
     minerPower: 100,
     goldMiners: 0,
@@ -10,6 +12,15 @@ var hirelings = {
     strongMenCost: 10000,
 }
 
+function checkMiner(){
+    if (hirelings.numMinersHired > 0){
+        document.getElementById("charisma").style.visibility = "visible";
+    }
+    else{
+        document.getElementById("charisma").style.visibility = "hidden";
+    }
+}
+
 function buyMiner(){
     if(gameData.goldPerClick >= hirelings.minerHireCost){
         gameData.goldPerClick -= hirelings.minerHireCost
@@ -17,6 +28,14 @@ function buyMiner(){
         hirelings.minersAvailable++
         hirelings.minerHireCost=200*hirelings.numMinersHired
     }
+}
+
+function gainCharisma(){
+    hirelings.charisma+=hirelings.numMinersHired
+}
+
+function gainCred(){
+    //make an event that is random and allows the user to interact with his crew to gain cred with them 
 }
 
 function autoGold(){
@@ -45,7 +64,7 @@ function autoMine(){
     gameData.crystal += (hirelings.minerPower*hirelings.crystalMiners)/100
 }
 
-window.setInterval(autoMine,1000)
+window.setInterval(autoMine,gainCharisma,1000)
 
 var saveHire = window.setInterval(function(){
     hirelings.lastTick = Date.now()
