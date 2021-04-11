@@ -1,6 +1,8 @@
 var hirelings = {
+    lastTick: Date.now(),
     charisma: 0,
     cred: 0,
+    minerUpgradeCost: 1000,
     minersAvailable: 0,
     minerPower: 100,
     goldMiners: 0,
@@ -15,10 +17,21 @@ var hirelings = {
 function checkMiner(){
     if (hirelings.numMinersHired > 0){
         document.getElementById("charisma").style.visibility = "visible";
-        document.getElementById("charisma").textContent = "You have earned "+hirelings.charisma+" charisma by being around other people more frequently, you were lonely in the mines :*("
+        document.getElementById("charisma").textContent = "You have earned "+beautify(hirelings.charisma)+" charisma by being around other people more frequently, you were lonely in the mines :*("
+        document.getElementById("minerUpgrade").style.visibility ="visible";
+        document.getElementById("minerUpgrade").textContent = "Upgrade Miner Power || %"+beautify(hirelings.minerPower)+" || "+beautify(hirelings.minerUpgradeCost)+" Charisma"
     }
     else{
         document.getElementById("charisma").style.visibility = "hidden";
+        document.getElementById("minerUpgrade").style.visibility = "hidden";
+    }
+}
+
+function minerUpgrade(){
+    if(hirelings.charisma > hirelings.minerUpgradeCost){
+        hirelings.charisma -= hirelings.minerUpgradeCost
+        hirelings.minerUpgradeCost*=2
+        hirelings.minerPower+=100
     }
 }
 
@@ -27,7 +40,7 @@ function buyMiner(){
         gameData.goldPerClick -= hirelings.minerHireCost
         hirelings.numMinersHired++
         hirelings.minersAvailable++
-        hirelings.minerHireCost=200*hirelings.numMinersHired
+        hirelings.minerHireCost=100+200*hirelings.numMinersHired
     }
 }
 
@@ -80,4 +93,6 @@ var hireSave = JSON.parse(localStorage.getItem("_hirelings"))
 
 if (hireSave !== null){
     hirelings = hireSave
+    diff = Date.now() - hirelings.lastTick
+    hirelings.charisma+=hirelings.numMinersHired*(diff/1000)
 }
