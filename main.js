@@ -139,7 +139,7 @@ function buyHandle(){
         gameData.handleBought+=1       
         gameData.handleCost*=1.5
         gameData.handleMulti+=.1
-        gameData.goldPerClick*=gameData.handleMulti
+        gameData.goldPerClick+=gameData.handleMulti
     }
 }
 //Decreases the cost of the Pickaxe upgrade, will be upgradable as a time element
