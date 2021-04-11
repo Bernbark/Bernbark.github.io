@@ -183,12 +183,7 @@ function refresh(){
         document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+beautify(gameData.crystal)+" Crystals Owned || "+Math.round((100-gameData.crystalFind))+"% Crystal Find per Click or Second"
     }
     document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold"
-    if (gameData.crystal < 1000){
-        document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+" || "+beautify(gameData.crystal)+" Crystals Owned"
-    }
-    else{
-        document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+" || "+beautify(gameData.crystal)+" Crystals Owned"
-    }
+    document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+"+"+beautify(hirelings.minerPower*hirelings.goldMiners)+"/sec from hired help || "+beautify(gameData.crystal)+" Crystals Owned"
     document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"
     document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
