@@ -111,14 +111,14 @@ function buyGloves(){
     if (gameData.gold >= gameData.glovesCost){
         gameData.gold-=gameData.glovesCost
         gameData.glovesMulti++
-        gameData.glovesCost*=gameData.glovesMulti+1/gameData.glovesMulti
+        gameData.glovesCost*=1.7
     }
 }
 
 function buyLight(){
     if (gameData.gold >= gameData.lightCost && gameData.lightCount < 51){
         gameData.gold -= gameData.lightCost
-        gameData.lightCost*=3
+        gameData.lightCost*=2
         gameData.lightCount++
         gameData.crystalFind--
     }
@@ -127,7 +127,7 @@ function buyLight(){
 function pickHead(){
     if (gameData.crystal >= gameData.pickCost){
         gameData.crystal -= gameData.pickCost
-        gameData.pickCost*=4
+        gameData.pickCostz*=1.8
         gameData.pickBought++
         gameData.pickMulti+=.1;
         gameData.goldPerClick*=gameData.pickMulti
@@ -137,7 +137,7 @@ function buyHandle(){
     if (gameData.gold > gameData.handleCost){
         gameData.gold -= gameData.handleCost
         gameData.handleBought+=1       
-        gameData.handleCost*=3
+        gameData.handleCost*=1.5
         gameData.handleMulti+=.1
         gameData.goldPerClick*=gameData.handleMulti
     }
@@ -154,7 +154,7 @@ function decreaseCostPerClick(){
     if (gameData.gold > gameData.priceDropCost && gameData.goldPerClickCost >= 10000){
         gameData.gold -= gameData.priceDropCost
         gameData.goldPerClickCost-=1
-        gameData.priceDropCost*=3
+        gameData.priceDropCost*=1.5
         gameData.dcpCount += 1
     }
 }
@@ -168,7 +168,7 @@ function buyGoldPerClick(){
             gameData.goldPerClickCost +=5
         }
         else{
-            gameData.goldPerClickCost *= gameData.gpcCount
+            gameData.goldPerClickCost *= 2
         }
         
         gameData.gpcCount += 1
