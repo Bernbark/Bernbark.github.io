@@ -16,7 +16,7 @@ function buyMiner(){
         gameData.goldPerClick -= hirelings.minerHireCost
         hirelings.numMinersHired++
         hirelings.minersAvailable++
-        hirelings.minerHireCost=200*numMinersHired
+        hirelings.minerHireCost=200*hirelings.numMinersHired
     }
 }
 
