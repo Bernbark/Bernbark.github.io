@@ -64,9 +64,6 @@ window.setInterval(getStrength,1000)
 function mineGold(){
     gameData.gold += clickStrength
     gameData.totalGold += clickStrength
-    console.log(gameData.goldPerClick)
-    console.log(gym.strength)
-    console.log(clickStrength)
     chance = Math.floor(Math.random() * gameData.crystalFind)+1
     if (chance === gameData.crystalFind){
         gameData.crystal+=gameData.glovesMulti*(1+gym.gripCount/4)
@@ -74,8 +71,8 @@ function mineGold(){
 }
 
 function mineGoldPerSecond(){
-    gameData.gold += gameData.goldPerClick
-    gameData.totalGold += gameData.goldPerClick
+    gameData.gold += gameData.goldPerClick/25
+    gameData.totalGold += gameData.goldPerClick/25
     chance = Math.floor(Math.random() * gameData.crystalFind)+1
     if (chance === gameData.crystalFind){
         gameData.crystal+=gameData.glovesMulti*(1+gym.gripCount/4)
@@ -87,7 +84,7 @@ function cartBuy(){
         gameData.crystal-=gameData.cartCost
         gameData.cartCount++
         gameData.cartCost+=50*(gameData.cartCount)/2
-        gameData.goldPerClick*=1.5
+        gameData.goldPerClick=gameData.goldPerClick*0.5
     }
 }
 // find more crystals at a time
@@ -95,7 +92,7 @@ function buyGloves(){
     if (gameData.gold >= gameData.glovesCost){
         gameData.gold-=gameData.glovesCost
         gameData.glovesMulti++
-        gameData.glovesCost*=5
+        gameData.glovesCost*=gameData.glovesMulti/gameData.glovesMulti-1
     }
 }
 
@@ -123,13 +120,13 @@ function buyHandle(){
         gameData.handleBought+=1       
         gameData.handleCost*=3
         gameData.handleMulti+=.1
-        gameData.goldPerClick*=gameData.handleMulti
+        gameData.goldPerClick+=gameData.handleMulti
     }
 }
 //Decreases the cost of the Pickaxe upgrade, will be upgradable as a time element
 function decreaseCostPerSecond(){
     if(gameData.priceDropCost >= 10000 && gameData.goldPerClickCost >= 10000 && gameData.dcpCount > 0){
-    gameData.goldPerClickCost-=gameData.dcpCount        
+        gameData.goldPerClickCost-=gameData.dcpCount        
     } 
 }
 
@@ -195,7 +192,7 @@ var goldPerSecond = 0;
 var now = 0;
 function gPS(){
     then = gameData.gold
-    now = gameData.goldPerClick*50+then
+    now = gameData.goldPerClick*(1000/fps)+then
     goldPerSecond = (now-then)/2
 }
 
