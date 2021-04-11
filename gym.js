@@ -9,7 +9,7 @@ var gym = {
 
 function buyMembership(){
     
-    if (goldPerSecond > 5000 && gym.bought === false){
+    if (gameData.goldPerClick > 5000 && gym.bought === false){
         gameData.goldPerClick-=5000
         gym.bought = true
         gym.strPerSecond+=1

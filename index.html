@@ -46,6 +46,11 @@
     </div>
     <div id="hirelings">
       <p id="hireMessage">Hire some help around here.</p>
+      <p>Buy miners which can be allocated to mine gold or crystals</p>
+      <button onclick="buyMiner()" id="buyMiner">Buy Miner || 200 Gold Per Second</button>
+      <button onclick="autoCrystal()" id="autoCrystal">Miners Mining Gold: 0 || +0 Gold Per Second</button>
+      <button onclick="autoGold()" id="autoGold">Miners Mining Crystal: 0 || +0 Crystal Per Second</button>
+      <button onclick="removeAll()" id="removeAll">Remove all workers for re-allocation (doesn't fire them permanently)</button>
     </div>
     <script src="gym.js"></script>
     <script src="beautify.js"></script>

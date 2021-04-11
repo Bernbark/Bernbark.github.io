@@ -1,3 +1,11 @@
+/**
+ * TODO:
+ *  Create a system where, once player reaches max gold, they loop back around and gain a new form of currency.
+ */
+
+
+
+
 var gameData = {
     lastTick: Date.now(),
     clock: 0,
@@ -160,16 +168,19 @@ function buyGoldPerClick(){
 
 // Makes sure the text on page is being updated when the page is refreshed, used in the gameLoop
 function refresh(){
+    document.getElementById("buyMiner").textContent = "Buy Miner || "+beautify(hirelings.minerHireCost)+" Gold Per Second"
+    document.getElementById("autoCrystal").textContent = "Miners Mining Crystal: "+hirelings.crystalMiners+" || +"+beautify((hirelings.crystalMiners*hirelings.minerPower)/100)+" Crystal Per Second"
+    document.getElementById("autoGold").textContent = "Miners Mining Gold: "+hirelings.goldMiners+" || +"+beautify(hirelings.goldMiners*hirelings.minerPower)+" Gold Per Second"
     document.getElementById("grip").textContent = "Train Grip || "+beautify(gym.gripCost)+" Strength"
     document.getElementById("mineGold").textContent = "Mine "+beautify(gameData.goldPerClick*gym.strength)+" Gold"
     document.getElementById("cartBuy").textContent = beautify(gameData.cartCost)+" Crystal"
     document.getElementById("buyGloves").textContent = "Buy Gloves || "+ beautify(gameData.glovesCost)+" Gold"
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
     if (gameData.crystal < 1000){
-        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+Math.round((gameData.crystalFind-99))+"% Crystal Find per Click or Second"
+        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+Math.round((100-gameData.crystalFind))+"% Crystal Find per Click or Second"
     }
     else{
-        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+beautify(gameData.crystal)+" Crystals Owned || "+Math.round((gameData.crystalFind-99))+"% Crystal Find per Click or Second"
+        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+beautify(gameData.crystal)+" Crystals Owned || "+Math.round((100-gameData.crystalFind))+"% Crystal Find per Click or Second"
     }
     document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold"
     if (gameData.crystal < 1000){
