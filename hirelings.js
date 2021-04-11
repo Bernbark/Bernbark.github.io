@@ -48,10 +48,10 @@ function autoMine(){
 
 window.setInterval(autoMine,1000)
 
-var gymSave = JSON.parse(localStorage.getItem("_hirelings"))
+var hireSave = JSON.parse(localStorage.getItem("_hirelings"))
 
 
-var saveGym = window.setInterval(function(){
+var saveHire = window.setInterval(function(){
     hirelings.lastTick = Date.now()
     localStorage.setItem("_hirelings", JSON.stringify(hirelings))
 }, 1000)
