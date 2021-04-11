@@ -1,5 +1,4 @@
 var hirelings = {
-    lastTick: Date.now(),
     minersAvailable: 0,
     minerPower: 100,
     goldMiners: 0,
@@ -57,5 +56,4 @@ var hireSave = JSON.parse(localStorage.getItem("_hirelings"))
 
 if (hireSave !== null){
     hirelings = hireSave
-    diff = Date.now() - hirelings.lastTick;
 }
