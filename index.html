@@ -8,8 +8,8 @@
     <div id="navigateButtons">
       <button onclick="tab('homeScreen')">Home Screen</button>
       <button onclick="tab('crystalMenu')">Crystal Shop</button>
-      <button onclick="tab('gym')">The Gym</button>
       <button onclick="tab('hirelings')">Help for Hire</button>
+      <button onclick="tab('gym')">The Gym</button>
     </div>
     <div id="homeScreen">
       <p id="goldMined">0 Gold Mined || 0 Crystals Found</p>
@@ -39,14 +39,6 @@
       <p>Harden Pick</p>
       <button onclick="pickHead()" id ="pickHead">5000 crystal || Hardness: 1</button>
     </div>
-    <div id="gym">
-      <p>Experience the thrill of getting stronger without leaving your home! Buy a gym membership for only 5000 gold per second! What a steal!</p>
-      <button onclick="buyMembership()" id ="membership">Buy Membership</button>
-      <p>The more strength you have, the stronger your manual mining power (click) is.</p>
-      <p id="strength">Strength: 1</p>
-      <p>Focus your training on grip strength</p>
-      <button onclick="buyGrip()" id="grip">Train Grip || 200 Strength</button>
-    </div>
     <div id="hirelings">
       <p id="hireMessage">Hire some help around here.</p>
       <p>Buy miners which can be allocated to mine gold or crystals</p>
@@ -56,6 +48,14 @@
       <button onclick="removeAll()" id="removeAll">Remove all workers for re-allocation (doesn't fire them permanently)</button>
       <p id="charisma"></p>
       <button onclick="upgradeMiner()" id="minerUpgrade">Upgrade Miner Power || 100% Power || 1000 Charisma</button>
+    </div>
+    <div id="gym">
+      <p>Experience the thrill of getting stronger without leaving your home! Buy a gym membership for only 5000 gold per second! What a steal!</p>
+      <button onclick="buyMembership()" id ="membership">Buy Membership</button>
+      <p>The more strength you have, the stronger your manual mining power (click) is.</p>
+      <p id="strength">Strength: 1</p>
+      <p>Focus your training on grip strength</p>
+      <button onclick="buyGrip()" id="grip">Train Grip || 200 Strength</button>
     </div>
     <script src="gym.js"></script>
     <script src="beautify.js"></script>
