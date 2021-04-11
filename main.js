@@ -144,7 +144,7 @@ function decreaseCostPerClick(){
 function buyGoldPerClick(){
     if (gameData.gold >= gameData.goldPerClickCost){
         gameData.gold-=gameData.goldPerClickCost
-        gameData.goldPerClick += 1*gameData.gpcCount
+        
         if(gameData.gpcCount < 1){
             gameData.goldPerClickCost +=5
         }
@@ -153,7 +153,7 @@ function buyGoldPerClick(){
         }
         
         gameData.gpcCount += 1
-        
+        gameData.goldPerClick += 1*gameData.gpcCount
         
     }
 }
@@ -166,10 +166,10 @@ function refresh(){
     document.getElementById("buyGloves").textContent = "Buy Gloves || "+ beautify(gameData.glovesCost)+" Gold"
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
     if (gameData.crystal < 1000){
-        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+Math.round((99-gameData.crystalFind))+"% Crystal Find per Click or Second"
+        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+Math.round((gameData.crystalFind-99))+"% Crystal Find per Click or Second"
     }
     else{
-        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+beautify(gameData.crystal)+" Crystals Owned || "+Math.round((99-gameData.crystalFind))+"% Crystal Find per Click or Second"
+        document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+beautify(gameData.crystal)+" Crystals Owned || "+Math.round((gameData.crystalFind-99))+"% Crystal Find per Click or Second"
     }
     document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold"
     if (gameData.crystal < 1000){
@@ -193,7 +193,7 @@ var now = 0;
 function gPS(){
     then = gameData.gold
     now = gameData.goldPerClick*(1000/(fps+25))+then
-    goldPerSecond = (now-then)/2
+    goldPerSecond = (now-then)/20
 }
 
 window.setInterval(gPS,1000)
