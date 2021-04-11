@@ -193,7 +193,7 @@ var now = 0;
 function gPS(){
     then = gameData.gold
     now = gameData.goldPerClick*(1000/(fps+25))+then
-    goldPerSecond = (now-then)/50
+    goldPerSecond = (now-then)/2
 }
 
 window.setInterval(gPS,1000)
