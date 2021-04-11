@@ -8,6 +8,7 @@
 
 var gameData = {
     lastTick: Date.now(),
+    incomeCost: 100,
     clock: 0,
     frameTime: 100,
     gold: 0,
@@ -76,6 +77,16 @@ function mineGold(){
     if (chance === gameData.crystalFind){
         gameData.crystal+=gameData.glovesMulti*(1+gym.gripCount/4)
     }  
+}
+
+//direct conversion of crystal to goldperclick
+function increaseIncome(){
+    if (gameData.crystal >= gameData.incomeCost)
+    {
+        gameData.crystal -= gameData.incomeCost
+        gameData.incomeCost *=2
+        gameData.goldPerClick*=1.2
+    }
 }
 
 function mineGoldPerSecond(){
@@ -168,6 +179,7 @@ function buyGoldPerClick(){
 
 // Makes sure the text on page is being updated when the page is refreshed, used in the gameLoop
 function refresh(){
+    document.getElementById("increaseIncome").textContent = beautify(gameData.incomeCost)+" Crystal"
     document.getElementById("buyMiner").textContent = "Buy Miner || "+beautify(hirelings.minerHireCost)+" Gold Per Second"
     document.getElementById("autoCrystal").textContent = "Miners Mining Crystal: "+beautify(hirelings.crystalMiners)+" || +"+beautify((hirelings.crystalMiners*hirelings.minerPower)/100)+" Crystal Per Second"
     document.getElementById("autoGold").textContent = "Miners Mining Gold: "+beautify(hirelings.goldMiners)+" || +"+beautify(hirelings.goldMiners*hirelings.minerPower)+" Gold Per Second"
