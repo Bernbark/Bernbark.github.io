@@ -84,7 +84,7 @@ function cartBuy(){
         gameData.crystal-=gameData.cartCost
         gameData.cartCount++
         gameData.cartCost+=50*(gameData.cartCount)/2
-        gameData.goldPerClick=gameData.goldPerClick*0.5
+        gameData.goldPerClick+=gameData.goldPerClick*0.5
     }
 }
 // find more crystals at a time
