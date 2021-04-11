@@ -1,4 +1,5 @@
 var hirelings = {
+    lastTick: Date.now(),
     minersAvailable: 0,
     minerPower: 100,
     goldMiners: 0,
@@ -15,7 +16,7 @@ function buyMiner(){
         gameData.goldPerClick -= hirelings.minerHireCost
         hirelings.numMinersHired++
         hirelings.minersAvailable++
-        hirelings.minerHireCost*=2
+        hirelings.minerHireCost=200*numMinersHired
     }
 }
 
@@ -46,3 +47,18 @@ function autoMine(){
 }
 
 window.setInterval(autoMine,1000)
+
+var gymSave = JSON.parse(localStorage.getItem("_hirelings"))
+
+
+var saveGym = window.setInterval(function(){
+    hirelings.lastTick = Date.now()
+    localStorage.setItem("_hirelings", JSON.stringify(hirelings))
+}, 1000)
+
+if (hireSave !== null){
+    hirelings = hireSave
+    diff = Date.now() - hirelings.lastTick;
+    gameData.gold += hirelings.minerPower*hirelings.goldMiners*diff/1000
+    gameData.crystal += ((hirelings.minerPower*hirelings.crystalMiners)/100)*diff/1000
+}
