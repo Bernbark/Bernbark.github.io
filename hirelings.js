@@ -15,6 +15,7 @@ var hirelings = {
 function checkMiner(){
     if (hirelings.numMinersHired > 0){
         document.getElementById("charisma").style.visibility = "visible";
+        document.getElementById("charisma").textContent = "You have earned "+hirelings.charisma+" charisma by being around other people more frequently, you were lonely in the mines :*("
     }
     else{
         document.getElementById("charisma").style.visibility = "hidden";
@@ -64,7 +65,11 @@ function autoMine(){
     gameData.crystal += (hirelings.minerPower*hirelings.crystalMiners)/100
 }
 
-window.setInterval(autoMine,gainCharisma,1000)
+window.setInterval(()=>{
+    autoMine()
+    gainCharisma()
+    checkMiner()
+},1000);
 
 var saveHire = window.setInterval(function(){
     hirelings.lastTick = Date.now()
