@@ -192,7 +192,7 @@ var goldPerSecond = 0;
 var now = 0;
 function gPS(){
     then = gameData.gold
-    now = gameData.goldPerClick*(1000/fps)+then
+    now = gameData.goldPerClick*(1000/(fps+25))+then
     goldPerSecond = (now-then)/50
 }
 
