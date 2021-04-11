@@ -19,7 +19,7 @@ function checkMiner(){
         document.getElementById("charisma").style.visibility = "visible";
         document.getElementById("charisma").textContent = "You have earned "+beautify(hirelings.charisma)+" charisma by being around other people more frequently, you were lonely in the mines :*("
         document.getElementById("minerUpgrade").style.visibility ="visible";
-        document.getElementById("minerUpgrade").textContent = "Upgrade Miner Power || %"+beautify(hirelings.minerPower)+" || "+beautify(hirelings.minerUpgradeCost)+" Charisma"
+        document.getElementById("minerUpgrade").textContent = "Upgrade Miner Power || "+beautify(hirelings.minerPower)+"% || "+beautify(hirelings.minerUpgradeCost)+" Charisma"
     }
     else{
         document.getElementById("charisma").style.visibility = "hidden";
