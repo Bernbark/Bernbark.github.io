@@ -244,6 +244,8 @@ if(gameData.goldPerClickCost - gameData.dcpCount*diff >= 10000){
 else if(gameData.over10000 === true){
     gameData.goldPerClickCost=10000
 }
+gameData.gold += hirelings.minerPower*hirelings.goldMiners*diff/1000
+gameData.crystal += ((hirelings.minerPower*hirelings.crystalMiners)/100)*diff/1000
 gameData.crystal += diff/1000
 
 var saveGameLoop = window.setInterval(function(){

@@ -58,6 +58,4 @@ var hireSave = JSON.parse(localStorage.getItem("_hirelings"))
 if (hireSave !== null){
     hirelings = hireSave
     diff = Date.now() - hirelings.lastTick;
-    gameData.gold += hirelings.minerPower*hirelings.goldMiners*diff/1000
-    gameData.crystal += ((hirelings.minerPower*hirelings.crystalMiners)/100)*diff/1000
 }
