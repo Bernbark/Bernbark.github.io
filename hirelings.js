@@ -27,7 +27,7 @@ function checkMiner(){
     }
 }
 
-function minerUpgrade(){
+function upgradeMiner(){
     if(hirelings.charisma > hirelings.minerUpgradeCost){
         hirelings.charisma -= hirelings.minerUpgradeCost
         hirelings.minerUpgradeCost*=2
