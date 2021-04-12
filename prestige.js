@@ -12,6 +12,7 @@ function prestigeNow(){
         localStorage.removeItem("save")
         localStorage.removeItem("_gym")
         localStorage.removeItem("_hirelings")
+        location.reload();
     }
 }
 
