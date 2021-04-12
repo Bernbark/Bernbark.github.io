@@ -4,7 +4,7 @@ var hirelings = {
     cred: 0,
     minerUpgradeCost: 1000,
     minersAvailable: 0,
-    minerPower: 100,
+    minerPower: 300,
     goldMiners: 0,
     crystalMiners: 0,
     numMinersHired: 0,
