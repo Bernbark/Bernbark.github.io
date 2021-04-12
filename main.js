@@ -128,9 +128,9 @@ function buyLight(){
 function pickHead(){
     if (gameData.crystal >= gameData.pickCost){
         gameData.crystal -= gameData.pickCost
-        gameData.pickCostz*=1.8
+        gameData.pickCost*=1.8
         gameData.pickBought++
-        gameData.pickMulti+=.1;
+        gameData.pickMulti+=1;
         gameData.goldPerClick*=gameData.pickMulti
     }
 }
