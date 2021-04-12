@@ -1,5 +1,5 @@
 function giveGold(){
-    gameData.gold+=100000000000
+    gameData.gold+=100000000000000
 }
 
 function giveStrength(){
