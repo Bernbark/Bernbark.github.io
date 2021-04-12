@@ -144,10 +144,12 @@ function buyHandle(){
 //Decreases the cost of the Pickaxe upgrade, will be upgradable as a time element
 function decreaseCostPerSecond(){
     if(gameData.priceDropCost >= 10000 && gameData.goldPerClickCost >= 10000 && gameData.dcpCount > 1){
-        gameData.goldPerClickCost-=gameData.dcpCount
         if(gameData.goldPerClickCost<10000){
             gameData.goldPerClickCost=10000
-        }        
+        }
+        else{
+            gameData.goldPerClickCost-=gameData.dcpCount
+        }    
     } 
 }
 
@@ -155,9 +157,9 @@ function decreaseCostPerSecond(){
 function decreaseCostPerClick(){
     if (gameData.gold > gameData.priceDropCost && gameData.goldPerClickCost > 10000){
         gameData.gold -= gameData.priceDropCost
-        gameData.dcpCount*=1.4
+        gameData.dcpCount*=1.5
         gameData.goldPerClickCost-=gameData.dcpCount
-        gameData.priceDropCost*=1.5
+        gameData.priceDropCost*=3.3
         if(gameData.dcpCount > 1 && gameData.goldPerClickCost<10000){
             gameData.goldPerClickCost = 10000
         }
