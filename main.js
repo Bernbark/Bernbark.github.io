@@ -198,7 +198,7 @@ function refresh(){
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
     document.getElementById("currentCurrency").textContent = "Current prestige currency: "+beautify(prestige.currencyTotal)+" || Total to be earned from hitting the prestige button now: "+beautify(prestige.currencyToBeEarned)
     document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)
-    document.getElementById("handle").textContent = "Buy a new handle and increase your mining multiplier by 10% || Current Multi: "+beautify(gameData.handleMulti)+" || Price: "+beautify(gameData.handleCost)
+    document.getElementById("handle").textContent = "Buy a new handle and increase your mining multiplier by 10% || Current Multi: "+beautify(gameData.handleMulti,2)+" || Price: "+beautify(gameData.handleCost)
 }
 
 //This section helps to display a gold per second value. Doesn't need to be saved since it is just created live.
