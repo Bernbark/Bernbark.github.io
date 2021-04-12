@@ -1,6 +1,7 @@
 /**
  * TODO:
  *  Create a system where, once player reaches max gold, they loop back around and gain a new form of currency.
+ *  Make a prestige system for when players get prices that are too high.
  */
 
 
@@ -33,7 +34,20 @@ var gameData = {
     lightCount: 0,
     cartCost: 50,
     cartCount: 0,
-    
+    init: function(){
+        var defaultSave = {};
+        for (var prop in this){
+            if(this.hasOwnProperty(prop) && prop != "defaultSave"){
+                defaultSave[prop] = this[prop]
+            }
+        }
+        this.defaultSave = defaultSave;
+    },
+    reset: function(){
+        for(var prop in this.defaultSave){
+            this[prop] = this.defaultSave[prop]
+        }
+    }   
 }
 
 window.onload = init;
@@ -195,6 +209,7 @@ function refresh(){
     document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"
     document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
+    document.getElementById("currentCurrency").textContent = "Current prestige currency: "+beautify(prestige.currencyTotal)+" || Total to be earned from hitting the prestige button now: "+beautify(prestige.currencyToBeEarned)
     document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)
     document.getElementById("handle").textContent = "Buy a new handle and increase your mining multiplier by 10% || Current Multi: "+beautify(gameData.handleMulti)+" || Price: "+beautify(gameData.handleCost)
 }
@@ -232,6 +247,7 @@ function reset(){
     localStorage.removeItem("save")
     localStorage.removeItem("_gym")
     localStorage.removeItem("_hirelings")
+    localStorage.removeItem("_prestige")
     location.reload();
 }
 
@@ -268,6 +284,7 @@ function tab(tab) {
     document.getElementById("crystalMenu").style.display = "none"
     document.getElementById("hirelings").style.display = "none"
     document.getElementById("gym").style.display = "none"
+    document.getElementById("prestige").style.display = "none"
     document.getElementById(tab).style.display = "inline-block"
   }
   // go to a tab for the first time, so not all show

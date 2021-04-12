@@ -10,6 +10,7 @@
       <button onclick="tab('crystalMenu')">Crystal Shop</button>
       <button onclick="tab('hirelings')">Help for Hire</button>
       <button onclick="tab('gym')">The Gym</button>
+      <button onclick="tab('prestige')">New Mines</button>
     </div>
     <div id="homeScreen">
       <p id="goldMined">0 Gold Mined || 0 Crystals Found</p>
@@ -57,11 +58,18 @@
       <p>Focus your training on grip strength</p>
       <button onclick="buyGrip()" id="grip">Train Grip || 200 Strength</button>
     </div>
+    <div id="prestige">
+      <p>From here you can decide to sell the old, worn down mine and start fresh in a new land. You will be rewarded based on how much your old mine could earn per second</p>
+      <strong>This new form of currency will help advance you to new levels of earnings</strong>
+      <p id="currentCurrency">Current prestige currency: 0 || Total to be earned from hitting the prestige button now: 0</p>
+      <p>Resetting will cause you to lose everything except for your prestige currency and anything you may have previously bought with prestige currency</p>
+      <button onclick="prestigeNow()">Prestige Now (No Warning)</button>
+    </div>
     <script src="gym.js"></script>
     <script src="beautify.js"></script>
     <script src="devCheats.js"></script>
     <script src="hirelings.js"></script>
-    
+    <script src="prestige.js"></script>
     <script src="main.js" charset="utf-8" type="text/javascript"></script>
   </body>
 </html>
