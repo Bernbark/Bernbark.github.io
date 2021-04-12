@@ -22,6 +22,7 @@ function buyCrystalFind(){
     if(prestige.currencyTotal >= prestige.startCrystalCost){
         prestige.currencyTotal -= prestige.startCrystalCost
         prestige.startCrystalCost*=2
+        gameData.crystalFindNumerator++
         prestige.crystalCount++
     }
 }
