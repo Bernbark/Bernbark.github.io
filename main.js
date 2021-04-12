@@ -155,7 +155,7 @@ function decreaseCostPerSecond(){
 function decreaseCostPerClick(){
     if (gameData.gold > gameData.priceDropCost && gameData.goldPerClickCost >= 10000){
         gameData.gold -= gameData.priceDropCost
-        gameData.dcpCount*=1.5
+        gameData.dcpCount*=1.08
         gameData.goldPerClickCost-=gameData.dcpCount
         gameData.priceDropCost*=1.5
         
