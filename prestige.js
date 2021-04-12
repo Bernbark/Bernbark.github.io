@@ -54,8 +54,8 @@ function pRefresh(){
     document.getElementById("currentCurrency").textContent = "Current prestige currency: "+beautify(prestige.currencyTotal)+" || Total to be earned from hitting the prestige button now: "+beautify(prestige.currencyToBeEarned)
 }
 window.setInterval(()=>{
-    toBeEarned,
-    pRefresh
+    toBeEarned()
+    pRefresh()
 },1000)
 
 
