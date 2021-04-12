@@ -13,7 +13,7 @@ function buyStartGold(){
         prestige.startGoldCost*=2
         prestige.startGoldCount++
         gameData.goldPerClick+=prestige.startGold
-        document.getElementById("buyStartGold").textContent = "Buy Starting Gold || "+prestige.startGoldCost+" Dollhairs"
+        
     }
 }
 
@@ -23,7 +23,7 @@ function buyCrystalFind(){
         
         prestige.startCrystalCost*=2
         gameData.crystalFindNumerator++
-        document.getElementById("buyCrystalFind").textContent = "Buy Better Crystal Find || "+prestige.startCrystalCost+" Dollhairs"
+        
     }
 }
 
@@ -48,8 +48,8 @@ function toBeEarned(){
 }
 
 function refresh(){
-    document.getElementById("buyStartGold").textContent = "Buy Starting Gold || "+prestige.startGoldCost+" Dollhairs"
-    document.getElementById("buyCrystalFind").textContent = "Buy Better Crystal Find || "+prestige.startCrystalCost+" Dollhairs"
+    document.getElementById("buyStartGold").textContent = "Buy Starting Gold || "+beautify(prestige.startGoldCost)+" Dollhairs"
+    document.getElementById("buyCrystalFind").textContent = "Buy Better Crystal Find || "+beautify(prestige.startCrystalCost)+" Dollhairs"
 }
 window.setInterval(()=>{
     toBeEarned,
