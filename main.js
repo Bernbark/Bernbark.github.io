@@ -15,9 +15,10 @@ var gameData = {
     gold: 0,
     crystal: 0,
     crystalFind: 100,
+    crystalFindNumerator: 1,
     crystalMulti: 1,
     totalGold: 0,
-    goldPerClick: 1,
+    goldPerClick: (1+(prestige.startGold*prestige.startGoldCount)),
     goldPerClickCost: 5,
     gpcCount: 0,
     glovesCost: 10000,
@@ -74,7 +75,7 @@ function mineGold(){
     gameData.gold += clickStrength
     gameData.totalGold += clickStrength
     chance = Math.floor(Math.random() * gameData.crystalFind)+1
-    if (chance === gameData.crystalFind){
+    if (chance === gameData.crystalFind || chance <= gameData.crystalFindNumerator){
         gameData.crystal+=gameData.glovesMulti*(1+gym.gripCount/4)
     }  
 }
@@ -93,7 +94,7 @@ function mineGoldPerSecond(){
     gameData.gold += gameData.goldPerClick/25
     gameData.totalGold += gameData.goldPerClick/25
     chance = Math.floor(Math.random() * gameData.crystalFind)+1
-    if (chance === gameData.crystalFind){
+    if (chance === gameData.crystalFind || chance <= gameData.crystalFindNumerator){
         gameData.crystal+=gameData.glovesMulti*(1+gym.gripCount/4)
     }  
 }
@@ -189,7 +190,7 @@ function refresh(){
     document.getElementById("cartBuy").textContent = beautify(gameData.cartCost)+" Crystal"
     document.getElementById("buyGloves").textContent = "Buy Gloves || "+ beautify(gameData.glovesCost)+" Gold"
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
-    document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || 1/"+beautify((gameData.crystalFind))+" Chance to find crystal per second/click"
+    document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+beautify(gameData.crystalFindNumerator)+"/"+beautify((gameData.crystalFind))+" Chance to find crystal per second/click"
     document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold"
     document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+" + "+beautify(hirelings.minerPower*hirelings.goldMiners)+"/sec from hired help || "+beautify(gameData.crystal)+" Crystals Owned"
     document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"

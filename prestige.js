@@ -2,6 +2,29 @@ var prestige = {
     currencyToBeEarned: 0,
     currencyTotal: 0,
     count: 0,
+    startGold: 100,
+    startGoldCost: 100,
+    startGoldCount: 0,
+    startCrystalFind: 0,
+    startCrystalCost: 1000,
+}
+function buyStartGold(){
+    if(prestige.currencyTotal >= prestige.startGoldCost){
+        prestige.currencyTotal -= prestige.startGoldCost
+        prestige.startGoldCost*=2
+        prestige.startGoldCount++
+        gameData.goldPerClick+=prestige.startGold
+        document.getElementById("buyStartGold").textContent = "Buy Starting Gold || "+prestige.startGoldCost+" Dollhairs"
+    }
+}
+
+function buyCrystalFind(){
+    if(prestige.currencyTotal >= prestige.startCrystalCost){
+        prestige.currencyTotal -= prestige.startCrystalCost
+        prestige.startCrystalFind++
+        prestige.startCrystalCost*=2
+        document.getElementById("buyCrystalFind").textContent = "Buy Better Crystal Find || "+prestige.startCrystalCost+" Dollhairs"
+    }
 }
 
 function prestigeNow(){
