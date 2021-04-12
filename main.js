@@ -145,7 +145,7 @@ function buyHandle(){
 function decreaseCostPerSecond(){
     if(gameData.priceDropCost >= 10000 && gameData.goldPerClickCost >= 10000 && gameData.dcpCount > 1){
         gameData.goldPerClickCost-=gameData.dcpCount
-        if(gameData.goldPerClickCost<10000){
+        if(gameData.goldPerClickCost<0){
             gameData.goldPerClickCost=10000
         }        
     } 
