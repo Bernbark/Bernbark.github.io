@@ -5,7 +5,6 @@ var prestige = {
     startGold: 100,
     startGoldCost: 100,
     startGoldCount: 0,
-    startCrystalFind: 0,
     startCrystalCost: 1000,
 }
 function buyStartGold(){
@@ -21,8 +20,9 @@ function buyStartGold(){
 function buyCrystalFind(){
     if(prestige.currencyTotal >= prestige.startCrystalCost){
         prestige.currencyTotal -= prestige.startCrystalCost
-        prestige.startCrystalFind++
+        
         prestige.startCrystalCost*=2
+        gameData.crystalFindNumerator++
         document.getElementById("buyCrystalFind").textContent = "Buy Better Crystal Find || "+prestige.startCrystalCost+" Dollhairs"
     }
 }
