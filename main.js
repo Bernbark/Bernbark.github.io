@@ -24,7 +24,7 @@ var gameData = {
     glovesCost: 10000,
     glovesMulti: 1,
     priceDropCost: 10000,
-    dcpCount: 0, // counts priceDropCost bought
+    dcpCount: 1, // counts priceDropCost bought
     handleCost: 5000,
     handleMulti: 1,
     handleBought: 0,
