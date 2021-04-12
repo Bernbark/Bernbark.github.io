@@ -35,7 +35,7 @@ function prestigeNow(){
         localStorage.removeItem("save")
         localStorage.removeItem("_gym")
         localStorage.removeItem("_hirelings")
-        localStorage.setItem("_prestige", JSON.stringify(prestige))
+        savePrestige = localStorage.setItem("_prestige", JSON.stringify(prestige))
         location.reload();
     }
 }
@@ -47,7 +47,15 @@ function toBeEarned(){
     }
 }
 
-window.setInterval(toBeEarned,1000)
+function refresh(){
+    document.getElementById("buyStartGold").textContent = "Buy Starting Gold || "+prestige.startGoldCost+" Dollhairs"
+    document.getElementById("buyCrystalFind").textContent = "Buy Better Crystal Find || "+prestige.startCrystalCost+" Dollhairs"
+}
+window.setInterval(()=>{
+    toBeEarned,
+    refresh
+},1000)
+
 
 var prestigeSave = JSON.parse(localStorage.getItem("_prestige"))
 
