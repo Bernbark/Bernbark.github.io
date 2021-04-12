@@ -195,7 +195,7 @@ function refresh(){
     document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
     document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)
-    document.getElementById("handle").textContent = "Buy a new handle and increase your mining multiplier by 10% || Current Multi: "+beautify(gameData.handleMulti,1)+" || Price: "+beautify(gameData.handleCost)
+    document.getElementById("handle").textContent = "Buy a new handle and increase your mining multiplier by 20% || Current Multi: "+beautify(gameData.handleMulti,1)+" || Price: "+beautify(gameData.handleCost)
 }
 
 //This section helps to display a gold per second value. Doesn't need to be saved since it is just created live.
