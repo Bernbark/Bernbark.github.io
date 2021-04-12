@@ -84,7 +84,7 @@ window.setInterval(()=>{
 var saveHire = window.setInterval(function(){
     hirelings.lastTick = Date.now()
     localStorage.setItem("_hirelings", JSON.stringify(hirelings))
-}, 1000)
+}, 1001)
 
 var hireSave = JSON.parse(localStorage.getItem("_hirelings"))
 

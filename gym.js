@@ -37,7 +37,7 @@ var gymSave = JSON.parse(localStorage.getItem("_gym"))
 var saveGym = window.setInterval(function(){
     gym.lastTick = Date.now()
     localStorage.setItem("_gym", JSON.stringify(gym))
-}, 1000)
+}, 1001)
 
 if (gymSave !== null){
     gym = gymSave

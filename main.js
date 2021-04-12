@@ -253,7 +253,7 @@ gameData.crystal += diff/1000
 var saveGameLoop = window.setInterval(function(){
     gameData.lastTick = Date.now()
     localStorage.setItem("save", JSON.stringify(gameData))
-}, 1000)
+}, 1001)
 
 //MENU TABS
 function tab(tab) {
