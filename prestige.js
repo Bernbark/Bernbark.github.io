@@ -42,7 +42,6 @@ function prestigeNow(){
 
 function toBeEarned(){
     prestige.currencyToBeEarned = (goldPerSecond - 5000000)/(1000+10*prestige.count)
-    console.log(prestige.count)
     if (prestige.currencyToBeEarned < 0){
         prestige.currencyToBeEarned = 0
     }
