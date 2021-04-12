@@ -1,5 +1,7 @@
 var prestige = {
-    
+    gameData: gameData.init(),
+    gym: gym.init(),
+    hirelings: hirelings.init(),
     currencyToBeEarned: 0,
     currencyTotal: 0,
     count: 0,
