@@ -15,7 +15,7 @@ var gameData = {
     gold: 0,
     crystal: 0,
     crystalFind: 100,
-    crystalFindNumerator: 1,
+    crystalFindNumerator: (1+prestige.crystalCount),
     crystalMulti: 1,
     totalGold: 0,
     goldPerClick: (1+(prestige.startGold*prestige.startGoldCount)),

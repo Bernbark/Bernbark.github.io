@@ -6,6 +6,7 @@ var prestige = {
     startGoldCost: 100,
     startGoldCount: 0,
     startCrystalCost: 1000,
+    crystalCount: 0,
 }
 function buyStartGold(){
     if(prestige.currencyTotal >= prestige.startGoldCost){
@@ -22,7 +23,7 @@ function buyCrystalFind(){
         prestige.currencyTotal -= prestige.startCrystalCost
         
         prestige.startCrystalCost*=2
-        gameData.crystalFindNumerator++
+        prestige.crystalCount++
         
     }
 }
