@@ -34,20 +34,6 @@ var gameData = {
     lightCount: 0,
     cartCost: 50,
     cartCount: 0,
-    init: function(){
-        var defaultSave = {};
-        for (var prop in this){
-            if(this.hasOwnProperty(prop) && prop != "defaultSave"){
-                defaultSave[prop] = this[prop]
-            }
-        }
-        this.defaultSave = defaultSave;
-    },
-    reset: function(){
-        for(var prop in this.defaultSave){
-            this[prop] = this.defaultSave[prop]
-        }
-    }   
 }
 
 window.onload = init;

@@ -1,7 +1,4 @@
 var prestige = {
-    gameData: gameData.init(),
-    gym: gym.init(),
-    hirelings: hirelings.init(),
     currencyToBeEarned: 0,
     currencyTotal: 0,
     count: 0,
@@ -12,9 +9,9 @@ function prestigeNow(){
         prestige.count++
         prestige.currencyToBeEarned = (goldPerSecond - 5000000)/(1000+10*prestige.count)
         prestige.currencyTotal+=prestige.currencyToBeEarned
-        gameData.reset()
-        gym.reset()
-        hirelings.reset()
+        localStorage.removeItem("save")
+        localStorage.removeItem("_gym")
+        localStorage.removeItem("_hirelings")
     }
 }
 

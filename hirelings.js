@@ -9,20 +9,6 @@ var hirelings = {
     crystalMiners: 0,
     numMinersHired: 0,
     minerHireCost: 200,
-    init: function(){
-        var defaultHirelings = {};
-        for (var prop in this){
-            if(this.hasOwnProperty(prop) && prop != "defaultHirelings"){
-                defaultHirelings[prop] = this[prop]
-            }
-        }
-        this.defaultHirelings = defaultHirelings;
-    },
-    reset: function(){
-        for(var prop in this.defaultHirelings){
-            this[prop] = this.defaultHirelings[prop]
-        }
-    }   
 }
 
 function checkMiner(){

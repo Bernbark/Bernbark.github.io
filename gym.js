@@ -5,20 +5,6 @@ var gym = {
     gripCost: 200,
     gripCount: 0,
     lastTick: Date.now(),
-    init: function(){
-        var defaultGym = {};
-        for (var prop in this){
-            if(this.hasOwnProperty(prop) && prop != "defaultGym"){
-                defaultGym[prop] = this[prop]
-            }
-        }
-        this.defaultGym = defaultGym;
-    },
-    reset: function(){
-        for(var prop in this.defaultGym){
-            this[prop] = this.defaultGym[prop]
-        }
-    }   
 }
 
 function buyMembership(){
