@@ -47,13 +47,14 @@ function toBeEarned(){
     }
 }
 
-function refresh(){
+function pRefresh(){
     document.getElementById("buyStartGold").textContent = "Buy Starting Gold || "+beautify(prestige.startGoldCost)+" Dollhairs"
     document.getElementById("buyCrystalFind").textContent = "Buy Better Crystal Find || "+beautify(prestige.startCrystalCost)+" Dollhairs"
+    document.getElementById("currentCurrency").textContent = "Current prestige currency: "+beautify(prestige.currencyTotal)+" || Total to be earned from hitting the prestige button now: "+beautify(prestige.currencyToBeEarned)
 }
 window.setInterval(()=>{
     toBeEarned,
-    refresh
+    pRefresh
 },1000)
 
 

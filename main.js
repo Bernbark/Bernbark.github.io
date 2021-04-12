@@ -194,7 +194,6 @@ function refresh(){
     document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"
     document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
-    document.getElementById("currentCurrency").textContent = "Current prestige currency: "+beautify(prestige.currencyTotal)+" || Total to be earned from hitting the prestige button now: "+beautify(prestige.currencyToBeEarned)
     document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)
     document.getElementById("handle").textContent = "Buy a new handle and increase your mining multiplier by 10% || Current Multi: "+beautify(gameData.handleMulti,2)+" || Price: "+beautify(gameData.handleCost)
 }
