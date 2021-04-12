@@ -32,10 +32,10 @@ function prestigeNow(){
         prestige.count++
         prestige.currencyToBeEarned = (goldPerSecond - 5000000)/(1000+10*prestige.count)
         prestige.currencyTotal+=prestige.currencyToBeEarned
+        savePrestige = localStorage.setItem("_prestige", JSON.stringify(prestige))
         localStorage.removeItem("save")
         localStorage.removeItem("_gym")
         localStorage.removeItem("_hirelings")
-        savePrestige = localStorage.setItem("_prestige", JSON.stringify(prestige))
         location.reload();
     }
 }
@@ -56,7 +56,7 @@ function pRefresh(){
 window.setInterval(()=>{
     toBeEarned()
     pRefresh()
-},1000)
+},1000);
 
 
 var prestigeSave = JSON.parse(localStorage.getItem("_prestige"))
