@@ -1,7 +1,7 @@
 var prestige = {
     currencyToBeEarned: 0,
     currencyTotal: 0,
-    count: 0,
+    count: 1,
     startGold: 100,
     startGoldCost: 100,
     startGoldCount: 0,
@@ -21,10 +21,8 @@ function buyStartGold(){
 function buyCrystalFind(){
     if(prestige.currencyTotal >= prestige.startCrystalCost){
         prestige.currencyTotal -= prestige.startCrystalCost
-        
         prestige.startCrystalCost*=2
         prestige.crystalCount++
-        
     }
 }
 
@@ -43,6 +41,7 @@ function prestigeNow(){
 
 function toBeEarned(){
     prestige.currencyToBeEarned = (goldPerSecond - 5000000)/(1000+10*prestige.count)
+    console.log(prestige.count)
     if (prestige.currencyToBeEarned < 0){
         prestige.currencyToBeEarned = 0
     }

@@ -47,7 +47,6 @@ var lastTime = 0;
 document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
         lastTime = Date.now();
-      console.log("Hidden");
     }
     else{
         diff = Date.now() - lastTime;      
@@ -60,7 +59,6 @@ document.addEventListener("visibilitychange", function() {
             gameData.goldPerClickCost=10000
         }
         gameData.crystal += diff/500
-        console.log("Visible");
     }
 })
 //TODO Create a system where you can use gold mined/interval to perform other actions like paying for a gym membership, getting stronger,
@@ -208,12 +206,8 @@ var goldPerSecond = 0;
 var now = 0;
 function gPS(){
     then = gameData.gold
-    console.log(then)
-    
     now = gameData.goldPerClick*(1000/(fps+25))+then
-    console.log(now)
     goldPerSecond = (now-then)/20
-    console.log(goldPerSecond)
 }
 
 window.setInterval(gPS,1000)
@@ -244,8 +238,6 @@ if(savegame != null){
     gameData = savegame
 }
 diff = Date.now()- gameData.lastTick;
-console.log(diff)
-console.log(gameData.lastTick)
 gPS()      
 gameData.gold += goldPerSecond*diff/1000
 gameData.totalGold += goldPerSecond*diff/1000
