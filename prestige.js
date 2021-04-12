@@ -1,4 +1,5 @@
 var prestige = {
+    
     currencyToBeEarned: 0,
     currencyTotal: 0,
     count: 0,
@@ -8,7 +9,7 @@ function prestigeNow(){
     if (goldPerSecond >= 5000000){
         prestige.count++
         prestige.currencyToBeEarned = (goldPerSecond - 5000000)/(1000+10*prestige.count)
-        currencyTotal+=prestige.currencyToBeEarned
+        prestige.currencyTotal+=prestige.currencyToBeEarned
         gameData.reset()
         gym.reset()
         hirelings.reset()
