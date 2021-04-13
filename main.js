@@ -298,7 +298,7 @@ function tab(tab) {
     if(gPS200 === false){
         document.getElementById("homeScreen").style.display = "none"
         document.getElementById("crystalMenu").style.display = "none"
-        return
+        
     }
     else if (gPS200 === true){
         document.getElementById("hirelings").style.display = "none"
