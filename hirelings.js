@@ -19,11 +19,11 @@ function checkGold(){
     setCrystal = document.getElementById("autoCrystal")
     remove = document.getElementById("removeAll")
     if (gPS200 === false){
-        hireMessage.style.display = 'none'
-        hireExplain.style.display = 'none'
-        buyHire.style.display = 'none'
-        remove.style.display = 'none'
-        setCrystal.style.display = 'none'
+        hireMessage.style.visibility = 'none'
+        hireExplain.style.visibility = 'none'
+        buyHire.style.visibility = 'none'
+        remove.style.visibility = 'none'
+        setCrystal.style.visibility = 'none'
     }
     else{
         hireMessage.textContent = "Hire some help around here"
