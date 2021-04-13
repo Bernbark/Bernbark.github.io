@@ -301,12 +301,21 @@ function tab(tab) {
         
     }
     else if (gPS200 === true){
+        document.getElementById("homeScreen").style.display = "none"
+        document.getElementById("crystalMenu").style.display = "none"
         document.getElementById("hirelings").style.display = "none"
     } 
     else if (gPS4000 === true){
+        document.getElementById("homeScreen").style.display = "none"
+        document.getElementById("crystalMenu").style.display = "none"
+        document.getElementById("hirelings").style.display = "none"
         document.getElementById("gym").style.display = "none"
     }
     else if (gps3Million === true){
+        document.getElementById("homeScreen").style.display = "none"
+        document.getElementById("crystalMenu").style.display = "none"
+        document.getElementById("hirelings").style.display = "none"
+        document.getElementById("gym").style.display = "none"
         document.getElementById("prestige").style.display = "none"
     }
     document.getElementById(tab).style.display = "inline-block"
