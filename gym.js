@@ -7,8 +7,7 @@ var gym = {
     lastTick: Date.now(),
 }
 
-function buyMembership(){
-    
+function buyMembership(){    
     if (gameData.goldPerClick > 5000 && gym.bought === false){
         gameData.goldPerClick-=5000
         gym.bought = true

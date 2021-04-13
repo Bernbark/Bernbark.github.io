@@ -231,7 +231,7 @@ function buyGoldPerClick(){
             gameData.goldPerClickCost +=5
         }
         else{
-            gameData.goldPerClickCost *= 1.5+(gameData.gpcCount/2)
+            gameData.goldPerClickCost *= 1.5+gameData.gpcCount
         }
         
         gameData.gpcCount += 1
