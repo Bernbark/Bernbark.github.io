@@ -249,7 +249,7 @@ function refresh(){
     document.getElementById("cartBuy").textContent = beautify(gameData.cartCost)+" Crystal"
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
     document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+beautify(gameData.crystalFindNumerator)+"/"+beautify((gameData.crystalFind))+" Chance to find crystal per second/click"
-    document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+" + "+beautify(hirelings.minerPower*hirelings.goldMiners)+"/sec from hired help || "+beautify(gameData.crystal)+" Crystals Owned"
+    document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Mining Power: "+beautify(goldPerSecond)+" + "+beautify(hirelings.minerPower*hirelings.goldMiners)+"/sec from hired help || "+beautify(gameData.crystal)+" Crystals Owned"
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
     document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)  
 }
