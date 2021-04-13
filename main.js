@@ -9,7 +9,7 @@
 
 var gameData = {
     lastTick: Date.now(),
-    
+
     incomeCost: 100,
     clock: 0,
     frameTime: 100,
@@ -319,11 +319,11 @@ var saveGameLoop = window.setInterval(function(){
 //MENU TABS
 function tab(tab) {
     // hide all your tabs, then show the one the user selected.
-    document.getElementById("homeScreen").style.display = "none"
-    document.getElementById("crystalMenu").style.display = "none"
-    document.getElementById("hirelings").style.display = "none"
-    document.getElementById("gym").style.display = "none"
-    document.getElementById("prestige").style.display = "none"
+    document.getElementById("homeScreen").style.visibility = "none"
+    document.getElementById("crystalMenu").style.visibility = "none"
+    document.getElementById("hirelings").style.visibility = "none"
+    document.getElementById("gym").style.visibility = "none"
+    document.getElementById("prestige").style.visibility = "none"
     
     document.getElementById(tab).style.display = "inline-block"
   }
