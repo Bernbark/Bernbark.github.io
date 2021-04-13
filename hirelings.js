@@ -12,7 +12,7 @@ var hirelings = {
 }
 
 // this makes sure the elements on this page are invisible until the player has earned enough gold per second
-function checkGold(){
+function checkGPS(){
     hireMessage = document.getElementById("hireMessage");
     hireExplain = document.getElementById("hireExplain")
     buyHire = document.getElementById("buyMiner")
@@ -102,7 +102,7 @@ function autoMine(){
 }
 
 window.setInterval(()=>{
-    checkGold()
+    checkGPS()
     autoMine()
     gainCharisma()
     checkMiner()
