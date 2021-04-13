@@ -78,6 +78,22 @@ function mineGold(){
     }  
 }
 
+function checkGold(){
+    if (gameData.gold > 10000){
+        document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"
+        document.getElementById("decreaseCost").textContent = "Upgrading this allows your Upgrade Pickaxe Cost to go down in price over time (pickaxe cost can't go below 10k, you can't buy this until it hits 10k)"
+        if(gameData.goldPerClickCost < 10000 && gameData.dcpCount > 1){
+            gameData.goldPerClickCost = 10000
+        }
+        document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold (Flat Upgrade)"
+    }
+    else{
+        document.getElementById("decreaseCost").style.visibility = 'none';
+        document.getElementById("perClickPriceDrop").style.visibility = 'none';
+        document.getElementById("perClickUpgrade").style.visibility = 'none';
+    }
+}
+
 //direct conversion of crystal to goldperclick
 function increaseIncome(){
     if (gameData.crystal >= gameData.incomeCost)
@@ -197,15 +213,9 @@ function refresh(){
     document.getElementById("buyGloves").textContent = "Buy Gloves || "+ beautify(gameData.glovesCost)+" Gold"
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
     document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+beautify(gameData.crystalFindNumerator)+"/"+beautify((gameData.crystalFind))+" Chance to find crystal per second/click"
-    if(gameData.goldPerClickCost < 10000 && gameData.dcpCount > 1){
-        gameData.goldPerClickCost = 10000
-        document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold (Flat Upgrade)"
-    }
-    else{
-        document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold (Flat Upgrade)"
-    }
+    
     document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+" + "+beautify(hirelings.minerPower*hirelings.goldMiners)+"/sec from hired help || "+beautify(gameData.crystal)+" Crystals Owned"
-    document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"
+    
     document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
     document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)
@@ -217,10 +227,22 @@ const fps = 25;
 var then = 0;
 var goldPerSecond = 0;
 var now = 0;
+var gPS200 = false
+var gPS4000 = false
+var gps3Million = false
 function gPS(){
     then = gameData.gold
     now = gameData.goldPerClick*(1000/(fps+25))+then
     goldPerSecond = (now-then)/20
+    if(goldPerSecond >= 200){
+        gPS200 = true;
+    }
+    if(goldPerSecond >= 4000){
+        gPS4000 = true;
+    }
+    if(goldPerSecond >= 3000000){
+        gps3Million = true;
+    }
 }
 
 window.setInterval(gPS,1000)
@@ -228,6 +250,7 @@ window.setInterval(gPS,1000)
 function gameLoop(){
     
     setTimeout(()=>{
+        checkGold()
         refresh()        
         mineGoldPerSecond()
         decreaseCostPerSecond()
@@ -272,11 +295,20 @@ var saveGameLoop = window.setInterval(function(){
 //MENU TABS
 function tab(tab) {
     // hide all your tabs, then show the one the user selected.
-    document.getElementById("homeScreen").style.display = "none"
-    document.getElementById("crystalMenu").style.display = "none"
-    document.getElementById("hirelings").style.display = "none"
-    document.getElementById("gym").style.display = "none"
-    document.getElementById("prestige").style.display = "none"
+    if(gPS200 === false){
+        document.getElementById("homeScreen").style.display = "none"
+        document.getElementById("crystalMenu").style.display = "none"
+        return
+    }
+    else if (gPS200 === true){
+        document.getElementById("hirelings").style.display = "none"
+    } 
+    else if (gPS4000 === true){
+        document.getElementById("gym").style.display = "none"
+    }
+    else if (gps3Million === true){
+        document.getElementById("prestige").style.display = "none"
+    }
     document.getElementById(tab).style.display = "inline-block"
   }
   // go to a tab for the first time, so not all show
