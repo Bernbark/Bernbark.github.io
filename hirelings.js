@@ -18,6 +18,7 @@ function checkGold(){
     buyHire = document.getElementById("buyMiner")
     setCrystal = document.getElementById("autoCrystal")
     remove = document.getElementById("removeAll")
+    setGold = document.getElementById("autoGold")
     if (gameData.maxGPS < 200){
         hireMessage.textContent = 'Earn more gold per second first to see what happens here.'
         hireExplain.style.visibility = 'none'
@@ -26,6 +27,7 @@ function checkGold(){
         setCrystal.style.visibility = 'none'
     }
     else{
+        setGold.textContent = "Miners Mining Gold: "+beautify(hirelings.goldMiners)+" || +"+beautify(hirelings.goldMiners*hirelings.minerPower)+" Gold Per Second"
         hireMessage.textContent = "Hire some help around here"
         hireExplain.textContent = "Buy miners starting at 200 gold per second to help mine gold and crystals."
         buyHire.textContent = "Buy Miner || Costs "+beautify(hirelings.minerHireCost)+" Gold Per Second"
