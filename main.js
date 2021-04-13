@@ -92,7 +92,7 @@ function check5000(){
 }
 function checkGold(){
     check10000()
-    check5000
+    check5000()
     if (over5000 === true){
         document.getElementById("handle").style.visibility = 'visible'
         document.getElementById("buyLight").style.visibility = 'visible'
