@@ -80,13 +80,13 @@ function mineGold(){
 
 var over10000 = false
 function check10000(){
-    if (gameData.gold > 10000){
+    if (gameData.totalGold > 10000){
         over10000 = true
     }
 }
 var over5000 = false
 function check5000(){
-    if (gameData.gold > 5000){
+    if (gameData.totalGold > 5000){
         over5000 = true
     }
 }
