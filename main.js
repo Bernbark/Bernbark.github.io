@@ -87,6 +87,8 @@ function check10000(){
 function checkGold(){
     check10000()
     if (over10000 === true){
+        document.getElementById("decreaseCost").style.visibility = 'visible';
+        document.getElementById("perClickPriceDrop").style.visibility = 'visible';
         document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"
         document.getElementById("decreaseCost").textContent = "Upgrading this allows your Upgrade Pickaxe Cost to go down in price over time (pickaxe cost can't go below 10k, you can't buy this until it hits 10k)"
         if(gameData.goldPerClickCost < 10000 && gameData.dcpCount > 1){
