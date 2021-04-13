@@ -85,12 +85,11 @@ function checkGold(){
         if(gameData.goldPerClickCost < 10000 && gameData.dcpCount > 1){
             gameData.goldPerClickCost = 10000
         }
-        document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold (Flat Upgrade)"
+        
     }
     else{
         document.getElementById("decreaseCost").style.visibility = 'none';
         document.getElementById("perClickPriceDrop").style.visibility = 'none';
-        document.getElementById("perClickUpgrade").style.visibility = 'none';
     }
 }
 
@@ -203,6 +202,7 @@ function buyGoldPerClick(){
 
 // Makes sure the text on page is being updated when the page is refreshed, used in the gameLoop
 function refresh(){
+    document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold (Flat Upgrade)"
     document.getElementById("increaseIncome").textContent = beautify(gameData.incomeCost)+" Crystal"
     document.getElementById("buyMiner").textContent = "Buy Miner || "+beautify(hirelings.minerHireCost)+" Gold Per Second"
     document.getElementById("autoCrystal").textContent = "Miners Mining Crystal: "+beautify(hirelings.crystalMiners)+" || +"+beautify((hirelings.crystalMiners*hirelings.minerPower)/100)+" Crystal Per Second"
@@ -295,48 +295,14 @@ var saveGameLoop = window.setInterval(function(){
 //MENU TABS
 function tab(tab) {
     // hide all your tabs, then show the one the user selected.
-    if(gPS200 === false){
-        document.getElementById("homeScreen").style.display = "none"
-        document.getElementById("crystalMenu").style.display = "none"
-        
-    }
-    else if (gPS200 === true){
-        document.getElementById("homeScreen").style.display = "none"
-        document.getElementById("crystalMenu").style.display = "none"
-        document.getElementById("hirelings").style.display = "none"
-    } 
-    else if (gPS4000 === true){
-        document.getElementById("homeScreen").style.display = "none"
-        document.getElementById("crystalMenu").style.display = "none"
-        document.getElementById("hirelings").style.display = "none"
-        document.getElementById("gym").style.display = "none"
-    }
-    else if (gps3Million === true){
-        document.getElementById("homeScreen").style.display = "none"
-        document.getElementById("crystalMenu").style.display = "none"
-        document.getElementById("hirelings").style.display = "none"
-        document.getElementById("gym").style.display = "none"
-        document.getElementById("prestige").style.display = "none"
-    }
+    document.getElementById("homeScreen").style.display = "none"
+    document.getElementById("crystalMenu").style.display = "none"
+    document.getElementById("hirelings").style.display = "none"
+    document.getElementById("gym").style.display = "none"
+    document.getElementById("prestige").style.display = "none"
+    
     document.getElementById(tab).style.display = "inline-block"
   }
   // go to a tab for the first time, so not all show
 tab("homeScreen")
 
-//Once you add more variables for an update, save extra variables as following
-if (typeof savegame.gold !== "undefined") gameData.gold = savegame.gold;
-if (typeof savegame.crystal !== "undefined") gameData.crystal = savegame.crystal;
-if (typeof savegame.crystalFind !== "undefined") gameData.crystalFind = savegame.crystalFind;
-if (typeof savegame.lastTick !== "undefined") gameData.lastTick = savegame.lastTick;
-if (typeof savegame.totalGold !== "undefined") gameData.totalGold = savegame.totalGold;
-if (typeof savegame.over10000 !== "undefined") gameData.over10000 = savegame.over10000;
-if (typeof savegame.goldPerClick !== "undefined") gameData.goldPerClick = savegame.goldPerClick;
-if (typeof savegame.goldPerClickCost !== "undefined") gameData.goldPerClickCost = savegame.goldPerClickCost;
-if (typeof savegame.gpcCount !== "undefined") gameData.gpcCount = savegame.gpcCount;
-if (typeof savegame.priceDropCost !== "undefined") gameData.priceDropCost = savegame.priceDropCost;
-if (typeof savegame.dcpCount !== "undefined") gameData.dcpCount = savegame.dcpCount;
-if (typeof savegame.handleCost !== "undefined") gameData.handleCost = savegame.handleCost;
-if (typeof savegame.handleMulti !== "undefined") gameData.handleMulti = savegame.handleMulti;
-if (typeof savegame.handleBought !== "undefined") gameData.handleBought = savegame.handleBought;
-if (typeof savegame.pickCost !== "undefined") gameData.pickCost = savegame.pickCost;
-if (typeof savegame.pickBought !== "undefined") gameData.pickBought = savegame.pickBought;
