@@ -84,12 +84,33 @@ function check10000(){
         over10000 = true
     }
 }
+var over5000 = false
+function check5000(){
+    if (gameData.gold > 5000){
+        over5000 = true
+    }
+}
 function checkGold(){
     check10000()
+    check5000
+    if (over5000 === true){
+        document.getElementById("handle").style.visibility = 'visible'
+        document.getElementById("buyLight").style.visibility = 'visible'
+        document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
+        document.getElementById("handle").textContent = "Buy a new handle to increase your current mining power by 20% || Price: "+beautify(gameData.handleCost)
+    }
+    else{
+        document.getElementById("handle").style.visibility = 'hidden'
+        document.getElementById("buyLight").style.visibility = 'hidden'
+    }
     if (over10000 === true){
         document.getElementById("decreaseCost").style.visibility = 'visible';
         document.getElementById("perClickPriceDrop").style.visibility = 'visible';
+        document.getElementById("buyGloves").style.visibility = 'visible';
+        document.getElementById("equipment").style.visibility = 'visible';
         document.getElementById("perClickPriceDrop").textContent = beautify(gameData.priceDropCost) + " Gold"
+        document.getElementById("equipment").textContent = "Better equipment to find more crystals at once"
+        document.getElementById("buyGloves").textContent = "Buy Gloves || "+ beautify(gameData.glovesCost)+" Gold"
         document.getElementById("decreaseCost").textContent = "Upgrading this allows your Upgrade Pickaxe Cost to go down in price over time (pickaxe cost can't go below 10k, you can't buy this until it hits 10k)"
         if(gameData.goldPerClickCost < 10000 && gameData.dcpCount > 1){
             gameData.goldPerClickCost = 10000
@@ -97,6 +118,8 @@ function checkGold(){
         
     }
     else{
+        document.getElementById("equipment").style.visibility = 'hidden';
+        document.getElementById("buyGloves").style.visibility = 'hidden';
         document.getElementById("decreaseCost").style.visibility = 'hidden';
         document.getElementById("perClickPriceDrop").style.visibility = 'hidden';
     }
@@ -218,16 +241,16 @@ function refresh(){
     document.getElementById("grip").textContent = "Train Grip || "+beautify(gym.gripCost)+" Strength"
     document.getElementById("mineGold").textContent = "Mine "+beautify(gameData.goldPerClick*gym.strength)+" Gold"
     document.getElementById("cartBuy").textContent = beautify(gameData.cartCost)+" Crystal"
-    document.getElementById("buyGloves").textContent = "Buy Gloves || "+ beautify(gameData.glovesCost)+" Gold"
+    
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
     document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+beautify(gameData.crystalFindNumerator)+"/"+beautify((gameData.crystalFind))+" Chance to find crystal per second/click"
     
     document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+" + "+beautify(hirelings.minerPower*hirelings.goldMiners)+"/sec from hired help || "+beautify(gameData.crystal)+" Crystals Owned"
     
-    document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
+    
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
     document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)
-    document.getElementById("handle").textContent = "Buy a new handle and increase your mining multiplier by 20% || Current Multi: "+beautify(gameData.handleMulti,1)+" || Price: "+beautify(gameData.handleCost)
+    
 }
 
 //This section helps to display a gold per second value. Doesn't need to be saved since it is just created live.
