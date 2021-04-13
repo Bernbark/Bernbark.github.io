@@ -204,8 +204,7 @@ function buyGoldPerClick(){
 function refresh(){
     document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold (Flat Upgrade)"
     document.getElementById("increaseIncome").textContent = beautify(gameData.incomeCost)+" Crystal"
-    document.getElementById("buyMiner").textContent = "Buy Miner || "+beautify(hirelings.minerHireCost)+" Gold Per Second"
-    document.getElementById("autoCrystal").textContent = "Miners Mining Crystal: "+beautify(hirelings.crystalMiners)+" || +"+beautify((hirelings.crystalMiners*hirelings.minerPower)/100)+" Crystal Per Second"
+    
     document.getElementById("autoGold").textContent = "Miners Mining Gold: "+beautify(hirelings.goldMiners)+" || +"+beautify(hirelings.goldMiners*hirelings.minerPower)+" Gold Per Second"
     document.getElementById("grip").textContent = "Train Grip || "+beautify(gym.gripCost)+" Strength"
     document.getElementById("mineGold").textContent = "Mine "+beautify(gameData.goldPerClick*gym.strength)+" Gold"

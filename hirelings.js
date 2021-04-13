@@ -11,6 +11,29 @@ var hirelings = {
     minerHireCost: 200,
 }
 
+// this makes sure the elements on this page are invisible until the player has earned enough gold per second
+function checkGold(){
+    hireMessage = document.getElementById("hireMessage");
+    hireExplain = document.getElementById("hireExplain")
+    buyHire = document.getElementById("buyMiner")
+    setCrystal = document.getElementById("autoCrystal")
+    remove = document.getElementById("removeAll")
+    if (gPS200 === true){
+        hireMessage.textContent = "Hire some help around here"
+        hireExplain.textContent = "Buy miners starting at 200 gold per second to help mine gold and crystals."
+        buyHire.textContent = "Buy Miner || "+beautify(hirelings.minerHireCost)+" Gold Per Second"
+        remove.textContent = "Remove all workers to reset their placements"
+        setCrystal.textContent = "Miners Mining Crystal: "+beautify(hirelings.crystalMiners)+" || +"+beautify((hirelings.crystalMiners*hirelings.minerPower)/100)+" Crystal Per Second"
+    }
+    else{
+        hireMessage.style.display = 'none'
+        hireExplain.style.display = 'none'
+        buyHire.style.display = 'none'
+        remove.style.display = 'none'
+        setCrystal.style.display = 'none'
+    }
+}
+
 function checkMiner(){
     if (hirelings.numMinersHired > 0){
         document.getElementById("charisma").style.visibility = "visible";
