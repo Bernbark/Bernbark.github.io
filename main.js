@@ -9,6 +9,7 @@
 
 var gameData = {
     lastTick: Date.now(),
+    
     incomeCost: 100,
     clock: 0,
     frameTime: 100,
@@ -35,6 +36,7 @@ var gameData = {
     lightCount: 0,
     cartCost: 50,
     cartCount: 0,
+    maxGPS: 0,
 }
 
 window.onload = init;
@@ -155,7 +157,7 @@ function cartBuy(){
         gameData.crystal-=gameData.cartCost
         gameData.cartCount++
         gameData.cartCost+=50*(gameData.cartCount)/2
-        gameData.goldPerClick+=gameData.goldPerClick*0.5
+        gameData.goldPerClick+=50*gameData.cartCount/2
     }
 }
 // find more crystals at a time
@@ -241,22 +243,16 @@ function buyGoldPerClick(){
 // Makes sure the text on page is being updated when the page is refreshed, used in the gameLoop
 function refresh(){
     document.getElementById("perClickUpgrade").textContent = "Upgrade Pickaxe Cost: " + beautify(gameData.goldPerClickCost) + " Gold (Flat Upgrade)"
-    document.getElementById("increaseIncome").textContent = beautify(gameData.incomeCost)+" Crystal"
-    
+    document.getElementById("increaseIncome").textContent = beautify(gameData.incomeCost)+" Crystal"  
     document.getElementById("autoGold").textContent = "Miners Mining Gold: "+beautify(hirelings.goldMiners)+" || +"+beautify(hirelings.goldMiners*hirelings.minerPower)+" Gold Per Second"
     document.getElementById("grip").textContent = "Train Grip || "+beautify(gym.gripCost)+" Strength"
     document.getElementById("mineGold").textContent = "Mine "+beautify(gameData.goldPerClick*gym.strength)+" Gold"
     document.getElementById("cartBuy").textContent = beautify(gameData.cartCost)+" Crystal"
-    
     document.getElementById("totalGold").textContent = "Total earned:" + beautify(gameData.totalGold)
     document.getElementById("crystalsOwned").textContent = beautify(gameData.gold) + " Gold Mined || "+Math.floor(gameData.crystal)+" Crystals Owned || "+beautify(gameData.crystalFindNumerator)+"/"+beautify((gameData.crystalFind))+" Chance to find crystal per second/click"
-    
     document.getElementById("goldMined").textContent = beautify(gameData.gold) + " Gold Mined || Gold Per Second: "+beautify(goldPerSecond)+" + "+beautify(hirelings.minerPower*hirelings.goldMiners)+"/sec from hired help || "+beautify(gameData.crystal)+" Crystals Owned"
-    
-    
     document.getElementById("strength").textContent = "Strength: "+ beautify(gym.strength)
-    document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)
-    
+    document.getElementById("pickHead").textContent = beautify(gameData.pickCost)+" crystal || Hardness: "+beautify(gameData.pickMulti)  
 }
 
 //This section helps to display a gold per second value. Doesn't need to be saved since it is just created live.
@@ -264,21 +260,12 @@ const fps = 25;
 var then = 0;
 var goldPerSecond = 0;
 var now = 0;
-var gPS200 = false
-var gPS4000 = false
-var gps3Million = false
 function gPS(){
     then = gameData.gold
     now = gameData.goldPerClick*(1000/(fps+25))+then
     goldPerSecond = (now-then)/20
-    if(goldPerSecond >= 200){
-        gPS200 = true;
-    }
-    if(goldPerSecond >= 4000){
-        gPS4000 = true;
-    }
-    if(goldPerSecond >= 3000000){
-        gps3Million = true;
+    if(goldPerSecond > gameData.maxGPS){
+        gameData.maxGPS = goldPerSecond
     }
 }
 
