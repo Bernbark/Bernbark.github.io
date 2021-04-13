@@ -96,10 +96,16 @@ function checkGold(){
     if (over5000 === true){
         document.getElementById("handle").style.visibility = 'visible'
         document.getElementById("buyLight").style.visibility = 'visible'
+        document.getElementById("handleUpgrade").style.visibility = 'visible'
+        document.getElementById("lights").style.visibility = 'visible'
+        document.getElementById("handleUpgrade").textContent = "New Handle"
+        document.getElementById("lights").textContent = "Find more crystals with better lighting, more power, and the power of science!"
         document.getElementById("buyLight").textContent = "Buy Light || "+beautify(gameData.lightCost)+" Gold"
         document.getElementById("handle").textContent = "Buy a new handle to increase your current mining power by 20% || Price: "+beautify(gameData.handleCost)
     }
     else{
+        document.getElementById("handleUpgrade").style.visibility = 'hidden'
+        document.getElementById("lights").style.visibility = 'hidden'
         document.getElementById("handle").style.visibility = 'hidden'
         document.getElementById("buyLight").style.visibility = 'hidden'
     }
