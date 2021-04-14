@@ -46,7 +46,7 @@ function checkMiner(){
     }
     else{
         document.getElementById("charisma").style.visibility = "hidden";
-        document.getElementById("minerUpgrade").style.visibility = "none";
+        document.getElementById("minerUpgrade").style.visibility = "hidden";
     }
 }
 
