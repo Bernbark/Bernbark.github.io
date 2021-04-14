@@ -21,10 +21,10 @@ function checkGPS(){
     setGold = document.getElementById("autoGold")
     if (gameData.maxGPS < 200){
         hireMessage.textContent = 'Earn more gold per second first to see what happens here.'
-        hireExplain.style.visibility = 'none'
-        buyHire.style.visibility = 'none'
-        remove.style.visibility = 'none'
-        setCrystal.style.visibility = 'none'
+        hireExplain.style.visibility = 'hidden'
+        buyHire.style.visibility = 'hidden'
+        remove.style.visibility = 'hidden'
+        setCrystal.style.visibility = 'hidden'
     }
     else{
         setGold.textContent = "Miners Mining Gold: "+beautify(hirelings.goldMiners)+" || +"+beautify(hirelings.goldMiners*hirelings.minerPower)+" Gold Per Second"

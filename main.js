@@ -323,7 +323,6 @@ function tab(tab) {
     document.getElementById("hirelings").style.display = "none"
     document.getElementById("gym").style.display = "none"
     document.getElementById("prestige").style.display = "none"
-    
     document.getElementById(tab).style.display = "inline-block"
   }
   // go to a tab for the first time, so not all show
