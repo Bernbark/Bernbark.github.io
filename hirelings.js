@@ -27,6 +27,10 @@ function checkGPS(){
         setCrystal.style.visibility = 'hidden'
     }
     else{
+        hireExplain.style.visibility = 'visible'
+        buyHire.style.visibility = 'visible'
+        remove.style.visibility = 'visible'
+        setCrystal.style.visibility = 'visible'
         setGold.textContent = "Miners Mining Gold: "+beautify(hirelings.goldMiners)+" || +"+beautify(hirelings.goldMiners*hirelings.minerPower)+" Gold Per Second"
         hireMessage.textContent = "Hire some help around here"
         hireExplain.textContent = "Buy miners starting at 200 gold per second to help mine gold and crystals."
